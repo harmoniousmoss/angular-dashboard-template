@@ -22,4 +22,8 @@ export class LoginComponent {
     console.log('Login attempt:', this.loginData);
     this.router.navigate(['/dashboard']);
   }
+
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
 }
