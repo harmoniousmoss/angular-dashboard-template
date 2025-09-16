@@ -10,14 +10,12 @@ A modern, clean dashboard template built with Angular 20 featuring a monochromat
 - **Register Page** - Complete registration form with validation and navigation
 - **Forgot Password** - Email reset functionality with success confirmation
 - **Profile Page** - Comprehensive user settings with personal info, password change, and account management
-- **Routing System** - Navigation between all pages (login, register, forgot password, dashboard, profile)
+- **Billing & Payment** - Complete billing system with payment processing, transaction history, and payment methods management
+- **Routing System** - Navigation between all pages (login, register, forgot password, dashboard, profile, billing)
 - **Responsive Layout** - Horizontal navigation with company branding
 - **User Interface** - User dropdown menu with profile options and logout functionality
 - **Slate Theme** - Monochromatic wireframe design using slate colors
 - **Typography** - Noto Sans font integration
-
-### 🚧 In Progress
-- **Billing & Payment** - Not yet implemented
 
 ## Tech Stack
 
@@ -64,8 +62,9 @@ src/
 │   ├── register/          # Registration component with validation
 │   ├── forgot-password/   # Forgot password component with email reset
 │   ├── profile/           # Profile component with user settings and account management
+│   ├── billing/           # Billing component with payment processing and transaction management
 │   ├── app.component.*    # Root component
-│   └── app.routes.ts      # Application routes (login/register/forgot-password/dashboard/profile)
+│   └── app.routes.ts      # Application routes (login/register/forgot-password/dashboard/profile/billing)
 ├── styles.css             # Global styles with Noto Sans
 └── index.html             # Main HTML template
 ```
