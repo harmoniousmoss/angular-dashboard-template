@@ -1,6 +1,6 @@
 # Angular Dashboard Template
 
-A modern, clean dashboard template built with Angular 20 featuring a monochromatic slate design theme.
+A modern, clean dashboard template built with Angular 20 featuring a monochromatic slate design theme for fast wireframing.
 
 ## Features
 
