@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,11 +11,17 @@ import { CommonModule } from '@angular/common';
 export class DashboardComponent {
   isDropdownOpen = false;
 
+  constructor(private router: Router) {}
+
   toggleUserDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   closeDropdown() {
     this.isDropdownOpen = false;
+  }
+
+  logout() {
+    this.router.navigate(['/login']);
   }
 }
