@@ -45,6 +45,10 @@ export class ProfileComponent {
     this.router.navigate(['/dashboard']);
   }
 
+  goToBilling() {
+    this.router.navigate(['/billing']);
+  }
+
   logout() {
     this.router.navigate(['/login']);
   }
