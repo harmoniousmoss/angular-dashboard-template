@@ -28,4 +28,8 @@ export class DashboardComponent {
   goToProfile() {
     this.router.navigate(['/profile']);
   }
+
+  goToBilling() {
+    this.router.navigate(['/billing']);
+  }
 }

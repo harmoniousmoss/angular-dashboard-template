@@ -1,0 +1,277 @@
+<!-- Top Navigation Header -->
+<div style="background-color: white; border-bottom: 1px solid #cbd5e1; padding: 1rem; display: flex; align-items: center; justify-content: space-between;">
+  <div style="display: flex; align-items: center; gap: 3rem;">
+    <h1 style="font-size: 1.125rem; font-weight: bold; color: #475569; margin: 0;">Company Name Here</h1>
+    
+    <!-- Horizontal Menu -->
+    <nav style="display: flex; align-items: center; gap: 1.5rem;">
+      <a (click)="goToDashboard()" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border-radius: 0.375rem; color: #64748b; text-decoration: none; font-size: 0.875rem; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#e2e8f0'; this.style.color='#475569'" onmouseout="this.style.backgroundColor=''; this.style.color='#64748b'">
+        📊 Dashboard
+      </a>
+      <a style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border-radius: 0.375rem; background-color: #e2e8f0; color: #475569; text-decoration: none; font-size: 0.875rem; font-weight: 500; border: 1px solid #cbd5e1;">
+        💳 Billing & Payments
+      </a>
+    </nav>
+  </div>
+  
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <button style="background: none; border: none; color: #64748b; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border-radius: 0.375rem;" onmouseover="this.style.backgroundColor='#e2e8f0'" onmouseout="this.style.backgroundColor=''">
+      🔔 Notifications
+    </button>
+    <div style="position: relative;">
+      <button style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; cursor: pointer; padding: 0.5rem; border-radius: 0.375rem; transition: all 0.2s;" (click)="toggleUserDropdown()" onmouseover="this.style.backgroundColor='#e2e8f0'" onmouseout="this.style.backgroundColor=''">
+        <div style="width: 2rem; height: 2rem; background-color: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #475569; font-size: 1rem;">👤</div>
+        <span style="font-weight: 500;">Syaeful Bahri</span>
+        <svg style="width: 1rem; height: 1rem; color: #64748b; transition: transform 0.2s;" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
+      
+      <!-- Dropdown Menu -->
+      <div *ngIf="isDropdownOpen" style="position: absolute; top: 100%; right: 0; background-color: white; border: 1px solid #cbd5e1; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 0.5rem 0; min-width: 12rem; z-index: 50;">
+        <a (click)="goToProfile()" style="display: block; padding: 0.75rem 1rem; color: #475569; text-decoration: none; font-size: 0.875rem; transition: all 0.2s; cursor: pointer;" onmouseover="this.style.backgroundColor='#f1f5f9'" onmouseout="this.style.backgroundColor=''">
+          👤 Profile Settings
+        </a>
+        <div style="border-top: 1px solid #cbd5e1; margin: 0.5rem 0;"></div>
+        <a (click)="logout()" style="display: block; padding: 0.75rem 1rem; color: #64748b; text-decoration: none; font-size: 0.875rem; transition: all 0.2s; cursor: pointer;" onmouseover="this.style.backgroundColor='#f1f5f9'" onmouseout="this.style.backgroundColor=''">
+          🚪 Log Out
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="min-height: calc(100vh - 73px); background-color: #f1f5f9; color: #334155; padding: 1.5rem;">
+  <!-- Page Header -->
+  <div style="margin-bottom: 2rem;">
+    <h1 style="font-size: 1.5rem; font-weight: bold; color: #475569; margin-bottom: 0.5rem;">Billing & Payments</h1>
+    <p style="color: #64748b; font-size: 0.875rem;">Manage your billing information, payment methods, and view your transaction history.</p>
+  </div>
+
+  <!-- Quick Stats Cards -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+    <!-- Current Balance -->
+    <div style="background-color: white; border-radius: 0.5rem; padding: 1.25rem; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+        <div style="width: 2.5rem; height: 2.5rem; background-color: #dcfce7; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">💰</div>
+        <span style="color: #64748b; font-size: 0.75rem; font-weight: 500;">CURRENT BALANCE</span>
+      </div>
+      <div style="font-size: 1.75rem; font-weight: bold; color: #16a34a;">$89.99</div>
+    </div>
+
+    <!-- Next Payment -->
+    <div style="background-color: white; border-radius: 0.5rem; padding: 1.25rem; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+        <div style="width: 2.5rem; height: 2.5rem; background-color: #fef3c7; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📅</div>
+        <span style="color: #64748b; font-size: 0.75rem; font-weight: 500;">NEXT PAYMENT</span>
+      </div>
+      <div style="font-size: 1.75rem; font-weight: bold; color: #475569;">Dec 15</div>
+    </div>
+
+    <!-- Monthly Bill -->
+    <div style="background-color: white; border-radius: 0.5rem; padding: 1.25rem; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+        <div style="width: 2.5rem; height: 2.5rem; background-color: #e2e8f0; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📄</div>
+        <span style="color: #64748b; font-size: 0.75rem; font-weight: 500;">MONTHLY BILL</span>
+      </div>
+      <div style="font-size: 1.75rem; font-weight: bold; color: #475569;">$149.99</div>
+    </div>
+
+    <!-- Total Paid -->
+    <div style="background-color: white; border-radius: 0.5rem; padding: 1.25rem; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+        <div style="width: 2.5rem; height: 2.5rem; background-color: #ddd6fe; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📊</div>
+        <span style="color: #64748b; font-size: 0.75rem; font-weight: 500;">TOTAL PAID (2024)</span>
+      </div>
+      <div style="font-size: 1.75rem; font-weight: bold; color: #475569;">$1,649.89</div>
+    </div>
+  </div>
+
+  <!-- Main Content Grid -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+    
+    <!-- Quick Payment Card -->
+    <div style="background-color: white; border-radius: 0.5rem; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1.5rem;">
+      <h2 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: #334155;">💳 Quick Payment</h2>
+      
+      <form (ngSubmit)="makePayment()" #paymentForm="ngForm">
+        <!-- Payment Amount -->
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; color: #475569; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.875rem;">
+            Payment Amount
+          </label>
+          <div style="display: flex; gap: 0.75rem;">
+            <input 
+              type="number" 
+              name="paymentAmount"
+              [(ngModel)]="paymentData.amount"
+              required
+              min="1"
+              step="0.01"
+              style="flex: 1; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.375rem; font-size: 0.875rem; color: #334155; background-color: white; transition: all 0.2s;"
+              placeholder="0.00"
+              onmouseover="this.style.borderColor='#64748b'"
+              onmouseout="this.style.borderColor='#cbd5e1'"
+              onfocus="this.style.borderColor='#475569'; this.style.outline='none'"
+              onblur="this.style.borderColor='#cbd5e1'"
+            />
+            <button 
+              type="button"
+              (click)="setPaymentAmount(149.99)"
+              style="padding: 0.75rem 1rem; background-color: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 0.375rem; color: #475569; font-size: 0.875rem; cursor: pointer; transition: all 0.2s;"
+              onmouseover="this.style.backgroundColor='#e2e8f0'"
+              onmouseout="this.style.backgroundColor='#f1f5f9'"
+            >
+              Full Amount
+            </button>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; color: #475569; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.875rem;">
+            Payment Method
+          </label>
+          <select 
+            name="paymentMethod"
+            [(ngModel)]="paymentData.method"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.375rem; font-size: 0.875rem; color: #334155; background-color: white; transition: all 0.2s;"
+            onmouseover="this.style.borderColor='#64748b'"
+            onmouseout="this.style.borderColor='#cbd5e1'"
+            onfocus="this.style.borderColor='#475569'; this.style.outline='none'"
+            onblur="this.style.borderColor='#cbd5e1'"
+          >
+            <option value="">Select payment method</option>
+            <option value="credit-card">💳 Credit Card (**** 4532)</option>
+            <option value="debit-card">💳 Debit Card (**** 7890)</option>
+            <option value="bank-account">🏦 Bank Account (**8901)</option>
+            <option value="paypal">🅿️ PayPal</option>
+          </select>
+        </div>
+
+        <!-- Payment Note -->
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; color: #475569; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.875rem;">
+            Payment Note (Optional)
+          </label>
+          <textarea 
+            name="paymentNote"
+            [(ngModel)]="paymentData.note"
+            rows="2"
+            style="width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.375rem; font-size: 0.875rem; color: #334155; background-color: white; transition: all 0.2s; resize: vertical;"
+            placeholder="Add a note for this payment..."
+            onmouseover="this.style.borderColor='#64748b'"
+            onmouseout="this.style.borderColor='#cbd5e1'"
+            onfocus="this.style.borderColor='#475569'; this.style.outline='none'"
+            onblur="this.style.borderColor='#cbd5e1'"
+          ></textarea>
+        </div>
+
+        <button 
+          type="submit"
+          style="width: 100%; background-color: #64748b; color: white; padding: 0.75rem; border-radius: 0.375rem; border: none; font-weight: 500; font-size: 0.875rem; cursor: pointer; transition: all 0.2s;"
+          onmouseover="this.style.backgroundColor='#475569'"
+          onmouseout="this.style.backgroundColor='#64748b'"
+        >
+          Process Payment
+        </button>
+      </form>
+    </div>
+
+    <!-- Payment Methods Card -->
+    <div style="background-color: white; border-radius: 0.5rem; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1.5rem;">
+      <h2 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: #334155;">💳 Payment Methods</h2>
+      
+      <!-- Payment Method List -->
+      <div style="margin-bottom: 1.5rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background-color: #f8fafc; border-radius: 0.375rem; margin-bottom: 0.5rem; border: 1px solid #f1f5f9;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 2rem; height: 2rem; background-color: #1f2937; border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: bold;">VISA</div>
+            <div>
+              <h3 style="font-weight: 500; font-size: 0.875rem; margin: 0; color: #334155;">Visa **** 4532</h3>
+              <p style="font-size: 0.75rem; color: #64748b; margin: 0;">Expires 12/26</p>
+            </div>
+          </div>
+          <span style="padding: 0.25rem 0.5rem; background-color: #dcfce7; color: #16a34a; font-size: 0.75rem; border-radius: 0.25rem; font-weight: 500;">Primary</span>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background-color: #f8fafc; border-radius: 0.375rem; margin-bottom: 0.5rem; border: 1px solid #f1f5f9;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 2rem; height: 2rem; background-color: #ef4444; border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: bold;">MC</div>
+            <div>
+              <h3 style="font-weight: 500; font-size: 0.875rem; margin: 0; color: #334155;">Mastercard **** 7890</h3>
+              <p style="font-size: 0.75rem; color: #64748b; margin: 0;">Expires 08/27</p>
+            </div>
+          </div>
+          <button style="background: none; border: none; color: #64748b; font-size: 0.75rem; cursor: pointer;" onmouseover="this.style.color='#475569'" onmouseout="this.style.color='#64748b'">Edit</button>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background-color: #f8fafc; border-radius: 0.375rem; margin-bottom: 0.5rem; border: 1px solid #f1f5f9;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 2rem; height: 2rem; background-color: #3b82f6; border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; font-weight: bold;">🏦</div>
+            <div>
+              <h3 style="font-weight: 500; font-size: 0.875rem; margin: 0; color: #334155;">Bank Account **8901</h3>
+              <p style="font-size: 0.75rem; color: #64748b; margin: 0;">Chase Bank</p>
+            </div>
+          </div>
+          <button style="background: none; border: none; color: #64748b; font-size: 0.75rem; cursor: pointer;" onmouseover="this.style.color='#475569'" onmouseout="this.style.color='#64748b'">Edit</button>
+        </div>
+      </div>
+
+      <button 
+        (click)="addPaymentMethod()"
+        style="width: 100%; background: none; border: 1px dashed #cbd5e1; color: #64748b; padding: 0.75rem; border-radius: 0.375rem; font-weight: 500; font-size: 0.875rem; cursor: pointer; transition: all 0.2s;"
+        onmouseover="this.style.borderColor='#64748b'; this.style.backgroundColor='#f8fafc'"
+        onmouseout="this.style.borderColor='#cbd5e1'; this.style.backgroundColor=''"
+      >
+        + Add New Payment Method
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Recent Transactions Card -->
+  <div style="background-color: white; border-radius: 0.5rem; border: 1px solid #cbd5e1; box-shadow: 0 1px 3px rgba(0,0,0,0.1); padding: 1.5rem;">
+    <h2 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: #334155;">📊 Recent Transactions</h2>
+    
+    <!-- Transaction List -->
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="border-bottom: 1px solid #e2e8f0;">
+            <th style="text-align: left; padding: 0.75rem 0; color: #64748b; font-size: 0.75rem; font-weight: 500; text-transform: uppercase;">Date</th>
+            <th style="text-align: left; padding: 0.75rem 0; color: #64748b; font-size: 0.75rem; font-weight: 500; text-transform: uppercase;">Description</th>
+            <th style="text-align: left; padding: 0.75rem 0; color: #64748b; font-size: 0.75rem; font-weight: 500; text-transform: uppercase;">Method</th>
+            <th style="text-align: right; padding: 0.75rem 0; color: #64748b; font-size: 0.75rem; font-weight: 500; text-transform: uppercase;">Amount</th>
+            <th style="text-align: center; padding: 0.75rem 0; color: #64748b; font-size: 0.75rem; font-weight: 500; text-transform: uppercase;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions" style="border-bottom: 1px solid #f1f5f9;">
+            <td style="padding: 0.75rem 0; font-size: 0.875rem; color: #334155;">{{ transaction.date }}</td>
+            <td style="padding: 0.75rem 0; font-size: 0.875rem; color: #334155;">{{ transaction.description }}</td>
+            <td style="padding: 0.75rem 0; font-size: 0.875rem; color: #64748b;">{{ transaction.method }}</td>
+            <td style="padding: 0.75rem 0; font-size: 0.875rem; color: #334155; text-align: right; font-weight: 500;">${{ transaction.amount }}</td>
+            <td style="padding: 0.75rem 0; text-align: center;">
+              <span [ngStyle]="getStatusStyle(transaction.status)" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; border-radius: 0.25rem; font-weight: 500;">
+                {{ transaction.status }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top: 1rem; text-align: center;">
+      <button 
+        (click)="viewAllTransactions()"
+        style="background: none; border: 1px solid #cbd5e1; color: #64748b; padding: 0.75rem 1.5rem; border-radius: 0.375rem; font-size: 0.875rem; cursor: pointer; transition: all 0.2s;"
+        onmouseover="this.style.borderColor='#64748b'; this.style.backgroundColor='#f8fafc'"
+        onmouseout="this.style.borderColor='#cbd5e1'; this.style.backgroundColor=''"
+      >
+        View All Transactions
+      </button>
+    </div>
+  </div>
+</div>
