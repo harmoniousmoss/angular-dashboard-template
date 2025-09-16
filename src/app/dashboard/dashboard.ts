@@ -32,4 +32,9 @@ export class DashboardComponent {
   goToBilling() {
     this.router.navigate(['/billing']);
   }
+
+  goToDashboard() {
+    // Already on dashboard, could scroll to top or refresh
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
