@@ -29,7 +29,7 @@
       
       <!-- Dropdown Menu -->
       <div *ngIf="isDropdownOpen" style="position: absolute; top: 100%; right: 0; background-color: white; border: 1px solid #cbd5e1; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 0.5rem 0; min-width: 12rem; z-index: 50;">
-        <a href="#" style="display: block; padding: 0.75rem 1rem; color: #475569; text-decoration: none; font-size: 0.875rem; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#f1f5f9'" onmouseout="this.style.backgroundColor=''">
+        <a (click)="goToProfile()" style="display: block; padding: 0.75rem 1rem; color: #475569; text-decoration: none; font-size: 0.875rem; transition: all 0.2s; cursor: pointer;" onmouseover="this.style.backgroundColor='#f1f5f9'" onmouseout="this.style.backgroundColor=''">
           👤 Profile Settings
         </a>
         <div style="border-top: 1px solid #cbd5e1; margin: 0.5rem 0;"></div>

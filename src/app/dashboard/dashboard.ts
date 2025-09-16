@@ -24,4 +24,8 @@ export class DashboardComponent {
   logout() {
     this.router.navigate(['/login']);
   }
+
+  goToProfile() {
+    this.router.navigate(['/profile']);
+  }
 }
