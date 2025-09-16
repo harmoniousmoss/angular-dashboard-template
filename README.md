@@ -14,6 +14,7 @@ A modern, clean dashboard template built with Angular 20 featuring a monochromat
 - **Typography** - Noto Sans font integration
 
 ### 🚧 In Progress
+- **Profile Page** - Not yet implemented
 - **Billing & Payment** - Not yet implemented
 - **Register Page** - Not yet implemented
 - **Forgot Password** - Not yet implemented
