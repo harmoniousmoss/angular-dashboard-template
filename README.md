@@ -1,59 +1,96 @@
-# AngularApp
+# Angular Dashboard Template
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
+A modern, clean dashboard template built with Angular 20 featuring a monochromatic slate design theme.
 
-## Development server
+## Features
 
-To start a local development server, run:
+### ✅ Completed
+- **Main Dashboard** - Complete dashboard with stats cards, services overview, activity feed, and quick actions
+- **Responsive Layout** - Horizontal navigation with company branding
+- **User Interface** - User dropdown menu with profile options
+- **Slate Theme** - Monochromatic wireframe design using slate colors
+- **Typography** - Noto Sans font integration
 
+### 🚧 In Progress
+- **Billing & Payment** - Not yet implemented
+- **Login Page** - Not yet implemented  
+- **Register Page** - Not yet implemented
+- **Forgot Password** - Not yet implemented
+
+## Tech Stack
+
+- **Angular** 20.3.0
+- **TypeScript** 
+- **Noto Sans** Font
+- **Inline CSS** Styling (Slate color palette)
+- **Standalone Components** Architecture
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
+- Angular CLI
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone <repository-url>
+cd angular-app
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Start the development server
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Open your browser and navigate to `http://localhost:4200`
 
-## Code scaffolding
+## Project Structure
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+src/
+├── app/
+│   ├── dashboard/          # Main dashboard component
+│   ├── login/             # Login component (WIP)
+│   ├── app.component.*    # Root component
+│   └── app.routes.ts      # Application routes
+├── styles.css             # Global styles with Noto Sans
+└── index.html             # Main HTML template
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Design System
 
-```bash
-ng generate --help
-```
+### Color Palette (Slate Theme)
+- **Background**: `#f1f5f9` (slate-100)
+- **Cards**: White with `#cbd5e1` (slate-300) borders
+- **Primary Text**: `#334155` (slate-700)
+- **Secondary Text**: `#64748b` (slate-500)
+- **Accent Elements**: `#475569` (slate-600)
 
-## Building
+### Typography
+- **Font Family**: Noto Sans (Google Fonts)
+- **Weights**: 400, 500, 600, 700
 
-To build the project run:
+## Development Progress
 
-```bash
-ng build
-```
+This README will be updated as new features are implemented. Current focus areas:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1. **Authentication System** - Login, Register, Forgot Password pages
+2. **Billing Module** - Payment processing and billing management
+3. **Routing** - Navigation between different sections
+4. **State Management** - User session and data management
 
-## Running unit tests
+## Contributing
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+This is a template project. Feel free to customize and extend based on your needs.
 
-```bash
-ng test
-```
+## License
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT License
